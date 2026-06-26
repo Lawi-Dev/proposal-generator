@@ -1,0 +1,156 @@
+:root {
+  --navy: #0c3a4d;
+  --teal: #2fb9af;
+  --teal-dark: #1ea89e;
+  --light: #d2eeec;
+  --light-2: #eaf6f5;
+  --gray: #5a6a72;
+  --ink: #14323d;
+  --bg: #eef1f4;
+  --panel: #ffffff;
+  --border: #e2e8ec;
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); }
+
+/* ===================== Layout do app (form + preview) ===================== */
+.app { display: grid; grid-template-columns: 380px 1fr; min-height: 100vh; }
+
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 24px;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+}
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--navy); font-size: 18px; }
+.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+.sidebar h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--gray); margin: 28px 0 12px; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.field input, .field select {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 9px;
+  font: inherit; font-size: 14px; background: #fff; color: var(--ink);
+}
+.field input:focus, .field select:focus { outline: 2px solid var(--teal); border-color: var(--teal); }
+.field select:disabled { background: #f3f5f7; color: #9aa7ae; }
+
+.btn {
+  width: 100%; padding: 12px; border: 0; border-radius: 10px; cursor: pointer;
+  font: inherit; font-weight: 700; font-size: 14px; background: var(--teal); color: #06343b;
+  transition: transform .08s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.secondary { background: var(--navy); color: #fff; }
+.hint { font-size: 12px; color: var(--gray); line-height: 1.5; margin-top: 8px; }
+.warn { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; padding: 10px; border-radius: 9px; font-size: 12.5px; line-height: 1.5; }
+
+/* ===================== Área de preview ===================== */
+.preview-wrap { padding: 28px; overflow-x: hidden; overflow-y: auto; }
+/* zoom (em vez de transform) reflui o layout — sem barra horizontal */
+.preview-scaler { width: 1280px; }
+
+/* ===================== SLIDE base (16:9 — 1280x720) ===================== */
+.slide {
+  width: 1280px; min-height: 720px; background: #fff; position: relative; overflow: hidden;
+  margin: 0 auto 22px; box-shadow: 0 6px 24px rgba(12, 58, 77, .12);
+  color: var(--ink); display: flex; flex-direction: column;
+}
+.slide .bar-top, .slide .bar-bottom { position: absolute; left: 0; right: 0; height: 26px; background: var(--teal); z-index: 0; }
+.slide .bar-top { top: 0; } .slide .bar-bottom { bottom: 0; }
+/* pad das seções: in-flow → o slide cresce com o conteúdo (não corta texto jurídico)
+   conteúdo centralizado verticalmente → preenche a página de forma organizada */
+.slide .pad { position: relative; z-index: 1; padding: 64px 96px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+/* capa e fechamento mantêm pad absoluto (centralizado sobre as formas) */
+.slide.cover .pad, .slide.closing .pad { position: absolute; inset: 0; padding: 86px 96px; }
+
+.s-title { font-size: 40px; font-weight: 800; color: var(--navy); margin: 0 0 22px; line-height: 1.08; }
+.s-title.teal { color: var(--teal); }
+.s-subtitle { font-size: 25px; font-weight: 700; color: var(--navy); margin: 0 0 16px; text-decoration: underline; text-underline-offset: 6px; }
+.s-p { font-size: 19px; line-height: 1.5; color: var(--gray); margin: 0 0 14px; }
+.s-p.strong { color: var(--navy); font-weight: 600; }
+.s-ul { margin: 8px 0 0; padding: 0; list-style: none; }
+.s-ul li { font-size: 19px; line-height: 1.5; color: var(--gray); padding-left: 28px; position: relative; margin-bottom: 7px; }
+.s-ul li::before { content: ""; position: absolute; left: 6px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+
+/* Capa */
+.cover .title { font-size: 64px; font-weight: 800; color: var(--navy); line-height: 1.05; max-width: 820px; }
+.cover .modality { font-size: 34px; font-weight: 700; color: var(--teal); margin-top: 6px; }
+.cover .meta { font-size: 22px; color: var(--gray); margin-top: 22px; line-height: 1.5; }
+.cover .logos { position: absolute; right: 96px; bottom: 92px; display: flex; align-items: center; gap: 26px; }
+.cover .client-logo { max-height: 70px; max-width: 220px; object-fit: contain; }
+.cover .logo-divider { width: 1px; height: 56px; background: #d4dde1; }
+
+/* Upload de logo (formulário) */
+.logo-frame {
+  height: 84px; border: 1.5px dashed var(--border); border-radius: 10px; background: #fafcfc;
+  display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 8px;
+}
+.logo-frame img { max-height: 72px; max-width: 90%; object-fit: contain; }
+.logo-frame-empty { font-size: 13px; color: #9aa7ae; }
+.logo-actions { display: flex; gap: 8px; }
+.btn-file {
+  flex: 1; text-align: center; padding: 9px; border-radius: 9px; background: var(--light);
+  color: #06343b; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn-file:hover { background: #c2e7e4; }
+.btn-clear { padding: 9px 12px; border: 1px solid var(--border); background: #fff; border-radius: 9px; font-size: 13px; color: var(--gray); cursor: pointer; }
+
+/* Slide de overview com imagem */
+.two-col { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; height: 100%; align-items: center; }
+.photo-ph { width: 100%; height: 340px; border-radius: 12px; background: linear-gradient(135deg, #163c4d, #2fb9af); position: relative; overflow: hidden; }
+.photo-ph::after { content: ""; position: absolute; left: -30px; top: 50%; width: 80px; height: 80px; background: var(--teal); transform: translateY(-50%) rotate(45deg); }
+
+/* Slide de preço */
+.price-panel { background: var(--light-2); border-radius: 22px; padding: 40px 52px; min-height: 500px; display: flex; flex-direction: column; justify-content: center; }
+.price-panel h3 { font-size: 32px; font-weight: 800; color: var(--navy); margin: 0 0 16px; }
+.price-panel .s-ul li { font-size: 16px; line-height: 1.35; margin-bottom: 4px; }
+.price-panel .s-ul li::before { top: 10px; }
+.price-panel .price-label { text-align: center; font-size: 24px; font-weight: 700; color: var(--navy); margin-top: 28px; }
+.price-panel .price-value { text-align: center; font-size: 44px; font-weight: 800; color: var(--teal); line-height: 1.1; }
+.price-panel .price-note { text-align: center; font-size: 14px; color: var(--gray); margin-top: 8px; }
+
+/* Depoimentos */
+.t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; }
+/* altura fixa + centralizado: alinha as 3 logos (de tamanhos diferentes) na mesma linha */
+.t-card .t-brand { height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 30px; font-weight: 800; color: var(--navy); }
+.t-card .t-quote { font-size: 17px; line-height: 1.5; color: var(--gray); }
+.t-card .t-name { font-size: 18px; font-weight: 800; color: var(--navy); margin-top: 18px; }
+.t-card .t-role { font-size: 16px; color: var(--teal); }
+.center-title { text-align: center; font-size: 44px; font-weight: 800; color: var(--navy); }
+
+/* Escritórios */
+.o-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 60px; margin-top: 36px; }
+.o-item { display: flex; gap: 18px; }
+.o-item .flag { font-size: 40px; line-height: 1; }
+.o-item .o-lines { font-size: 18px; color: var(--gray); line-height: 1.45; }
+.o-item .o-name { font-size: 19px; font-weight: 800; color: var(--navy); margin-top: 6px; }
+.o-item .o-team { font-size: 17px; color: var(--teal); }
+
+/* Fechamento (fundo navy) */
+.closing { background: var(--navy); color: #fff; }
+.closing .c-text { font-size: 30px; font-weight: 700; max-width: 760px; line-height: 1.4; }
+.closing .c-text .light { font-weight: 400; color: #cfe9e7; margin-top: 18px; display: block; }
+.closing .c-sign { position: absolute; right: 96px; bottom: 150px; font-size: 30px; font-weight: 800; }
+
+/* ===================== Impressão / Export PDF ===================== */
+@page { size: 1280px 720px; margin: 0; }
+
+/* Força a impressão das CORES DE FUNDO (barras teal, painéis, fundo navy).
+   Sem isto, navegadores omitem background-color no "Salvar como PDF". */
+.slide, .slide * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+@media print {
+  .sidebar, .preview-controls { display: none !important; }
+  .app { display: block; }
+  .preview-wrap { padding: 0; overflow: visible; }
+  .preview-scaler { width: 1280px; zoom: 1 !important; }
+  .slide { margin: 0; box-shadow: none; page-break-after: always; break-after: page; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .slide:last-child { page-break-after: auto; }
+}
