@@ -1,9 +1,0 @@
-Coloque aqui os logos em PNG (fundo transparente de preferência):
-
-  lawi.png      -> logo Lawi (círculo) usado na capa
-  cabify.png    -> logo do case Cabify
-  rappi.png     -> logo do case Rappi
-  nulinga.png   -> logo do case Nulinga
-
-Os nomes precisam ser exatamente esses (minúsculos, .png).
-Enquanto um arquivo não existir, o sistema mostra um texto no lugar (fallback).
