@@ -55,7 +55,7 @@ export default function App() {
   }, [langOptions]); // eslint-disable-line
 
   const template = resolveTemplate(jur, service, modality, lang);
-  const client: ClientInfo = { name, company, date: formatDate(date), logo };
+  const client: ClientInfo = { name, company: company.trim(), date: formatDate(date), logo };
 
   // Escala do preview para caber na coluna
   const wrapRef = useRef<HTMLDivElement>(null);

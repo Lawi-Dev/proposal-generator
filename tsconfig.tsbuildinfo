@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/deck.tsx","./src/brand.tsx","./src/content.ts","./src/flags.tsx","./src/main.tsx"],"version":"5.9.3"}
+{"root":["./src/App.tsx","./src/Deck.tsx","./src/brand.tsx","./src/content.ts","./src/flags.tsx","./src/main.tsx","./src/worker.ts"],"version":"5.9.3"}
