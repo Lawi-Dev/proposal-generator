@@ -61,13 +61,10 @@ export function CoverShapes() {
       style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
       aria-hidden="true"
     >
-      {/* canto superior direito */}
-      <path d="M880 0 L1280 0 L1280 250 Z" fill="#0c3a4d" />
-      <path d="M980 0 L1280 0 L1280 150 Z" fill="#2fb9af" />
-      <circle cx="1240" cy="210" r="90" fill="#0c3a4d" />
-      {/* canto inferior esquerdo */}
-      <path d="M0 470 L0 720 L250 720 Z" fill="#0c3a4d" />
-      <circle cx="40" cy="700" r="120" fill="#2fb9af" opacity="0.9" />
+      {/* Versão simplificada: um círculo no canto superior direito,
+          um meio-triângulo no canto inferior esquerdo. Sem sobreposições. */}
+      <circle cx="1280" cy="90" r="160" fill="#2fb9af" />
+      <path d="M0 720 L0 480 L240 720 Z" fill="#0c3a4d" />
     </svg>
   );
 }
@@ -82,10 +79,9 @@ export function ClosingShapes() {
       style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
       aria-hidden="true"
     >
-      <path d="M900 0 L1280 0 L1280 230 Z" fill="#2fb9af" />
-      <circle cx="1230" cy="120" r="80" fill="#ffffff" />
-      <path d="M0 480 L0 720 L240 720 Z" fill="#ffffff" opacity="0.95" />
-      <circle cx="60" cy="690" r="120" fill="#2fb9af" />
+      {/* Mesma versão simplificada da capa: círculo em cima, meio-triângulo embaixo. */}
+      <circle cx="1280" cy="90" r="160" fill="#2fb9af" />
+      <path d="M0 720 L0 480 L240 720 Z" fill="#ffffff" opacity="0.95" />
     </svg>
   );
 }

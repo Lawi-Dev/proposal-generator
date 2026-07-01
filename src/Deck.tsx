@@ -20,6 +20,26 @@ function Blocks({ blocks }: { blocks: GBlock[] }) {
           </ul>
         ) : b.t === "h" ? (
           <p key={i} className="s-subtitle">{b.text}</p>
+        ) : b.t === "h2" ? (
+          <h2 key={i} className="s-title" style={{ marginTop: 28 }}>{b.text}</h2>
+        ) : b.t === "options" ? (
+          <div key={i}>
+            {b.intro && <p className="s-p" style={{ marginBottom: 16 }}>{b.intro}</p>}
+            <div className="opt-grid">
+              {b.options.map((o, j) => (
+                <div className="opt-card" key={j}>
+                  <div className="opt-name">{o.name}</div>
+                  <div className="opt-lines">
+                    {o.lines.map((l, k) => (
+                      <p key={k} className="opt-line"><strong>{l.label}:</strong> {l.text}</p>
+                    ))}
+                  </div>
+                  <div className="opt-value">{o.value}</div>
+                  {o.note && <div className="opt-note">{o.note}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <p key={i} className={`s-p${b.strong ? " strong" : ""}`}>{b.text}</p>
         ),
@@ -106,31 +126,45 @@ export function Deck({ t, client, lang }: { t: GenericProposal; client: ClientIn
       {t.sections.map((s: GSection, i) => (
         <Slide key={i}>
           <div className="pad">
-            {s.heading && <h2 className="s-title">{s.heading}</h2>}
-            <Blocks blocks={s.blocks} />
+            {s.image ? (
+              <div className="two-col">
+                <div>
+                  {s.heading && <h2 className="s-title">{s.heading}</h2>}
+                  <Blocks blocks={s.blocks} />
+                </div>
+                <LogoImg src={s.image} alt="" style={{ width: "100%", height: 360, objectFit: "cover", borderRadius: 12 }} fallback={<div className="photo-ph" />} />
+              </div>
+            ) : (
+              <>
+                {s.heading && <h2 className="s-title">{s.heading}</h2>}
+                <Blocks blocks={s.blocks} />
+              </>
+            )}
           </div>
         </Slide>
       ))}
 
-      {/* Preço */}
-      <Slide>
-        <div className="pad">
-          <div className="two-col">
-            <div className="price-panel">
-              <h3>{t.priceTitle}</h3>
-              {includesAsParagraph ? (
-                <p className="s-p" style={{ fontSize: 18 }}>{t.priceIncludes[0]}</p>
-              ) : (
-                <ul className="s-ul">{t.priceIncludes.map((p, i) => <li key={i}>{p}</li>)}</ul>
-              )}
-              {price.label && <div className="price-label">{price.label}</div>}
-              <div className="price-value">{price.amount}</div>
-              {price.note && <div className="price-note">{price.note}</div>}
+      {/* Preço (valor único) — só renderiza se houver valor/itens */}
+      {(t.priceValue || t.priceIncludes.length > 0) && (
+        <Slide>
+          <div className="pad">
+            <div className="two-col">
+              <div className="price-panel">
+                <h3>{t.priceTitle}</h3>
+                {includesAsParagraph ? (
+                  <p className="s-p" style={{ fontSize: 18 }}>{t.priceIncludes[0]}</p>
+                ) : (
+                  <ul className="s-ul">{t.priceIncludes.map((p, i) => <li key={i}>{p}</li>)}</ul>
+                )}
+                {price.label && <div className="price-label">{price.label}</div>}
+                <div className="price-value">{price.amount}</div>
+                {price.note && <div className="price-note">{price.note}</div>}
+              </div>
+              <LogoImg src={t.priceImage ?? "/images/price.png"} alt="" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16 }} fallback={<div className="photo-ph" style={{ height: 460 }} />} />
             </div>
-            <LogoImg src="/images/price.png" alt="" style={{ width: "100%", height: 480, objectFit: "cover", borderRadius: 16 }} fallback={<div className="photo-ph" style={{ height: 460 }} />} />
           </div>
-        </div>
-      </Slide>
+        </Slide>
+      )}
 
       {/* Condições gerais */}
       <Slide>
