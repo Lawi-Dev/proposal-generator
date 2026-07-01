@@ -802,11 +802,24 @@ for (const lang of ["es", "pt", "en"] as const) {
 }
 
 // ARGENTINA · Soft Landing: imagem (imag5) na página 5 — "Propuesta inscripción de S.A.S."
+// e "Tiempo Estimado del Trabajo" em SLIDE PRÓPRIO (separa do "Propuesta Obtención del CDI").
+const TIEMPO_HEADINGS = ["Tiempo Estimado del Trabajo", "Tempo Estimado do Trabalho", "Estimated Timeline"];
 for (const lang of ["es", "pt", "en"] as const) {
   const p = all[`argentina|soft-landing|default|${lang}`];
   if (!p) continue;
   const sec = p.sections.find((s) => /(Propuesta inscripción de S\.A\.S\.|S\.A\.S\. Registration Proposal|Proposta de inscrição de S\.A\.S\.)/.test(s.heading));
   if (sec) sec.image = "/images/overview-ar-softlanding.png";
+
+  // separa o bloco "Tiempo Estimado" (h) para uma seção própria
+  const out: GSection[] = [];
+  for (const s of p.sections) {
+    const hi = s.blocks.findIndex((b) => b.t === "h" && TIEMPO_HEADINGS.includes(b.text));
+    if (hi === -1) { out.push(s); continue; }
+    out.push({ ...s, blocks: s.blocks.slice(0, hi) });
+    const hb = s.blocks[hi] as { t: "h"; text: string };
+    out.push({ heading: hb.text, blocks: s.blocks.slice(hi + 1) });
+  }
+  p.sections = out;
 }
 
 // ---------------------------------------------------------------------------
