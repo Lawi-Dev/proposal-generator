@@ -151,7 +151,7 @@ export const jurisdictions = [
   { id: "brasil", label: "Brasil" },
   { id: "argentina", label: "Argentina" },
   { id: "usa", label: "Estados Unidos" },
-  // { id: "espana", label: "España" },
+  { id: "espana", label: "España" },
 ] as const;
 
 export const languages: { id: Lang; label: string }[] = [
@@ -821,6 +821,244 @@ for (const lang of ["es", "pt", "en"] as const) {
   }
   p.sections = out;
 }
+
+// ---------------------------------------------------------------------------
+// ESPAÑA · Soft Landing (template Mentor Wallet) · ES — override manual.
+// Estrutura própria: SL/SA, honorario fijo €1.950, NIE/NIF, gastos, plazos.
+// ---------------------------------------------------------------------------
+all["espana|soft-landing|default|es"] = {
+  coverTitle: "Soft landing en España",
+  modality: "",
+  city: "Madrid, España",
+  overviewHeading: "Soft landing en España",
+  intro: [
+    "Apoyamos a emprendedores y empresas en el inicio o expansión de sus operaciones en España y el resto de Europa.",
+  ],
+  introBullets: [
+    "Consultoría Estratégica de Internacionalización y diseño del plan de desembarco operativo en el mercado español.",
+    "Redacción de estatutos sociales y acuerdos entre socios.",
+    "Gestión de proyecto (Project Management) para la activación de la entidad operativa.",
+    "Selección de proveedores locales certificados (Notaría, Gestoría, Banco) para la ejecución formal de constitución de entidades extranjeras, obtención de NIE/NIF y gestiones administrativas locales.",
+  ],
+  sections: [
+    {
+      heading: "Alcance de la Propuesta",
+      blocks: [
+        { t: "p", text: "Los asistiremos coordinando el servicio de colaboradores locales para el establecimiento de una sociedad local y su registro ante el Registro Mercantil de Madrid (la “Empresa Española”) y la obtención de su NIF (número de identificación fiscal) ante Hacienda, la autoridad fiscal en España." },
+        { t: "p", text: "Se informa al Cliente que la empresa local podrá organizarse como una sociedad de responsabilidad limitada (Sociedad Limitada - SL) o como una sociedad anónima (Sociedad Anónima - S.A.), que son las dos estructuras societarias más comúnmente utilizadas en España. Para los fines de esta propuesta, asumimos que la empresa se organizará como una SL, ya que suele ser el tipo de entidad más sencillo para operar." },
+        { t: "p", text: "Sin embargo, debe señalarse que en ciertas situaciones puede ser más conveniente o incluso obligatorio organizar la empresa como una sociedad anónima (S.A.), especialmente si la compañía planea emitir acciones próximamente o si tiene una estructura de capital más compleja. No obstante, la estructura societaria puede modificarse de SL a S.A. si fuera necesario en el futuro." },
+      ],
+    },
+    {
+      heading: "Información a ser brindada por el cliente",
+      blocks: [
+        { t: "p", text: "Al redactar los estatutos sociales de la Empresa Española, se deberá proporcionar la siguiente información:" },
+        { t: "ul", items: [
+          "(i) 5 opciones de nombre de la empresa, que debe incluir su objeto social principal;",
+          "(ii) La identificación del o los socios, que pueden ser una (1) o más personas físicas o jurídicas, ya sean españolas o extranjeras;",
+          "(iii) La dirección registrada de la Empresa Española en España*;",
+          "(iv) El objeto social de la empresa; y",
+          "(v) Los datos del administrador de la empresa**.",
+        ] },
+        { t: "p", text: "*En caso de no contar con un domicilio local, podemos recomendar un partner local para la obtención de un domicilio comercial o legal en Madrid." },
+        { t: "p", text: "**En caso de ser extranjeros no residentes, deberá tramitarse su NIE." },
+      ],
+    },
+    {
+      heading: "Servicios adicionales (opcionales)",
+      blocks: [
+        { t: "h", text: "1. Obtención de Número de Identificación Fiscal (NIE/NIF)" },
+        { t: "p", text: "En caso de que la SL sea constituida por una persona física, esta requerirá un NIE para identificarse fiscalmente. Si la constitución la realiza una persona jurídica, requerirá un NIF. Si se requiere la obtención de cualquiera de esos trámites, contamos con colaboradores locales que pueden ofrecer:" },
+        { t: "ul", items: [
+          "Orientación al cliente para la recopilación de documentación y su revisión.",
+          "Redacción de poder notarial para la presentación de la documentación en España o en el Consulado español local y asistencia en su apostillado.",
+          "Presentación de la documentación en España para la expedición de los correspondientes números de identificación.",
+          "En caso de que la socia sea Persona Jurídica, se asistirá con la obtención y presentación de los documentos societarios apostillados y, cuando corresponda, traducidos.",
+        ] },
+        { t: "p", strong: true, text: "Valor por gestión de NIE (personas físicas): € 700,00  ·  Valor por gestión de NIF (personas jurídicas): € 600,00" },
+      ],
+    },
+    {
+      heading: "Gastos de tramitación",
+      blocks: [
+        { t: "p", text: "Los gastos necesarios para llevar a cabo el trabajo, tales como copias, transporte, impuestos, tasas, traducciones, legalizaciones, apostillas, notaría, etc., no están incluidos en los honorarios propuestos y deberán ser reembolsados por el Cliente, siempre que hayan sido previamente aprobados." },
+        { t: "p", strong: true, text: "Se requerirá una provisión de fondos para gastos de Registro Mercantil y Notaría, Agencia Tributaria, NIF y denominación negativa de €1.200,00 + IVA." },
+        { t: "p", strong: true, text: "Se deberá aportar €3.000,00 en concepto de capital social inicial de la SL. Puede iniciarse el trámite con 1 euro, con el compromiso de aportar el resto durante el desarrollo de la actividad local." },
+        { t: "h2", text: "Plazos de tramitación" },
+        { t: "p", text: "El plazo habitual para la tramitación de una Sociedad Limitada con socio extranjero no residente en España es de entre 45 y 75 días, sujeto principalmente a la obtención del NIE del socio y a la apertura de la cuenta bancaria. Estos plazos son estimativos y pueden variar según la carga administrativa de los organismos competentes y la documentación aportada." },
+      ],
+    },
+  ],
+  priceTitle: "Propuesta | Soft Landing en España",
+  priceIncludes: [
+    "Diseño del plan de desembarco operativo en el mercado español y gestión de proyecto para la activación de la entidad operativa, contando con proveedores locales certificados para la ejecución formal de registro de la Empresa Española en el registro mercantil local, obtención de la denominación social, redacción de Estatutos sociales de la Empresa Española, y obtención de documentación y apostillas.",
+  ],
+  priceValue: "Honorario Fijo: € 1.950,00",
+  priceImage: "/images/price-spain.png", // imag da Espanha (a adicionar) — fallback p/ gradiente
+  conditions: [
+    "Los valores indicados en esta propuesta se expresan en euros. Su pago podrá realizarse, a elección del cliente, a través de transferencia bancaria doméstica, internacional o cripto a Estados Unidos, Argentina o Brasil.",
+    "Los gastos necesarios para llevar a cabo el trabajo, que no estén expresamente incluidos en los honorarios propuestos, deberán ser reembolsados por el Cliente, siempre que hayan sido autorizados.",
+    "Los honorarios se facturarán un 50% del total al inicio del trabajo y un 50% a la finalización de todas las tareas listadas que sean de responsabilidad de nuestra firma. En el caso de servicios recurrentes, los honorarios se facturarán al comienzo de cada mes, entre el día 1 y el 5.",
+    "Los servicios de Lawi se limitan estrictamente a la consultoría estratégica de negocio y a la gestión de proyectos. La formalización legal y gestión administrativa local es ejecutada por profesionales externos debidamente habilitados.",
+    "Esta propuesta tiene una validez de treinta (30) días.",
+  ],
+};
+
+all["espana|soft-landing|default|en"] = {
+  coverTitle: "Soft landing in Spain",
+  modality: "",
+  city: "Madrid, Spain",
+  overviewHeading: "Soft landing in Spain",
+  intro: [
+    "We support entrepreneurs and companies in starting or expanding their operations in Spain and the rest of Europe.",
+  ],
+  introBullets: [
+    "Strategic Internationalization Consulting and design of the operational landing plan in the Spanish market.",
+    "Drafting of corporate bylaws and shareholder agreements.",
+    "Project Management for the activation of the operational entity.",
+    "Selection of certified local providers (Notary, Agency, Bank) for the formal execution of registration of foreign entities, obtaining NIE/NIF and local administrative procedures.",
+  ],
+  sections: [
+    {
+      heading: "Scope of the Proposal",
+      blocks: [
+        { t: "p", text: "We will assist by coordinating local collaborators for the establishment of a local company and its registration with the Registro Mercantil de Madrid (the “Spanish Company”) and the obtaining of its NIF (tax identification number) before Hacienda, the tax authority in Spain." },
+        { t: "p", text: "The Client is informed that the local company may be organized as a limited liability company (Sociedad Limitada - SL) or as a corporation (Sociedad Anónima - S.A.), which are the two most commonly used corporate structures in Spain. For the purposes of this proposal, we assume the company will be organized as an SL, as it tends to be the simplest type of entity to operate." },
+        { t: "p", text: "However, it should be noted that in certain situations it may be more convenient or even mandatory to organize as an S.A., especially if the company plans to issue shares soon or has a more complex capital structure. Nevertheless, the structure can be changed from SL to S.A. if necessary in the future." },
+      ],
+    },
+    {
+      heading: "Information to be Provided by the Client",
+      blocks: [
+        { t: "p", text: "When drafting the bylaws of the Spanish Company, the following information must be provided:" },
+        { t: "ul", items: [
+          "(i) 5 company name options, which must include the main corporate purpose;",
+          "(ii) Identification of the partner(s), who may be one (1) or more natural or legal persons, Spanish or foreign;",
+          "(iii) The registered address of the Spanish Company in Spain*;",
+          "(iv) The corporate purpose of the company; and",
+          "(v) The details of the company administrator**.",
+        ] },
+        { t: "p", text: "*If no local address is available, we can recommend a local partner for obtaining a commercial or legal address in Madrid." },
+        { t: "p", text: "**If the administrator is a non-resident foreigner, their NIE must be processed." },
+      ],
+    },
+    {
+      heading: "Additional Services (optional)",
+      blocks: [
+        { t: "h", text: "1. Obtaining a Tax Identification Number (NIE/NIF)" },
+        { t: "p", text: "If the SL is incorporated by a natural person, they will require a NIE for tax identification purposes. If incorporated by a legal person, a NIF will be required. If any of these procedures is required, we have local collaborators who can offer:" },
+        { t: "ul", items: [
+          "Guidance to the client for document collection and review.",
+          "Drafting of notarial power of attorney for submission of documentation in Spain or at the local Spanish Consulate and assistance with apostilling.",
+          "Submission of documentation in Spain for the issuance of the corresponding identification numbers.",
+          "If the partner is a Legal Person, assistance will be provided in obtaining and submitting apostilled corporate documents and, where applicable, translated ones.",
+        ] },
+        { t: "p", strong: true, text: "Fee for NIE management (natural persons): € 700.00  ·  Fee for NIF management (legal persons): € 600.00" },
+      ],
+    },
+    {
+      heading: "Processing Expenses",
+      blocks: [
+        { t: "p", text: "Expenses necessary to carry out the work, such as copies, transport, taxes, fees, translations, legalizations, apostilles, notary, etc., are not included in the proposed fees and must be reimbursed by the Client, provided they have been previously approved." },
+        { t: "p", strong: true, text: "A provision of funds will be required for Commercial Registry and Notary expenses, Tax Agency, NIF, and company name reservation of €1,200.00 + VAT." },
+        { t: "p", strong: true, text: "An amount of €3,000.00 must be contributed as the initial share capital of the SL. The process can be started with 1 euro, with the commitment to contribute the rest during the development of local activities." },
+        { t: "h2", text: "Processing Timeline" },
+        { t: "p", text: "The usual timeframe for processing a Sociedad Limitada with a foreign non-resident partner in Spain is between 45 and 75 days, subject mainly to obtaining the partner's NIE and opening the bank account. These timeframes are estimates and may vary depending on the administrative workload of the competent authorities and the documentation provided." },
+      ],
+    },
+  ],
+  priceTitle: "Proposal | Soft Landing in Spain",
+  priceIncludes: [
+    "Design of the operational landing plan in the Spanish market and project management for the activation of the operational entity, with certified local providers for the formal execution of registration of the Spanish Company in the local commercial registry, obtaining the company name, drafting of the bylaws, and obtaining documentation and apostilles.",
+  ],
+  priceValue: "Fixed Fee: € 1,950.00",
+  priceImage: "/images/price-spain.png",
+  conditions: [
+    "The values indicated in this proposal are expressed in euros. Payment may be made, at the client's choice, via domestic or international bank transfer or crypto to the United States, Argentina, or Brazil.",
+    "Expenses necessary to carry out the work not expressly included in the proposed fees must be reimbursed by the Client, provided they have been authorized.",
+    "Fees will be invoiced 50% of the total at the start of the work and 50% upon completion of all tasks listed that are our firm's responsibility. In the case of recurring services, fees will be invoiced at the beginning of each month, between the 1st and 5th.",
+    "Lawi's services are strictly limited to strategic business consulting and project management. Legal formalization and local administrative management is carried out by duly authorized external professionals.",
+    "This proposal is valid for thirty (30) days.",
+  ],
+};
+
+all["espana|soft-landing|default|pt"] = {
+  coverTitle: "Soft landing na Espanha",
+  modality: "",
+  city: "Madrid, Espanha",
+  overviewHeading: "Soft landing na Espanha",
+  intro: [
+    "Apoiamos empreendedores e empresas no início ou expansão de suas operações na Espanha e no restante da Europa.",
+  ],
+  introBullets: [
+    "Consultoria Estratégica de Internacionalização e desenho do plano de desembarque operacional no mercado espanhol.",
+    "Redação de estatutos sociais e acordos entre sócios.",
+    "Gestão de projeto (Project Management) para a ativação da entidade operacional.",
+    "Seleção de fornecedores locais certificados (Notário, Gestoria, Banco) para a execução formal de constituição de entidades estrangeiras, obtenção de NIE/NIF e trâmites administrativos locais.",
+  ],
+  sections: [
+    {
+      heading: "Escopo da Proposta",
+      blocks: [
+        { t: "p", text: "Vamos assisti-los coordenando o serviço de colaboradores locais para o estabelecimento de uma sociedade local e seu registro perante o Registro Mercantil de Madrid (a “Empresa Espanhola”) e a obtenção de seu NIF (número de identificação fiscal) perante a Hacienda, a autoridade fiscal na Espanha." },
+        { t: "p", text: "Informa-se ao Cliente que a empresa local poderá organizar-se como uma sociedade de responsabilidade limitada (Sociedad Limitada - SL) ou como uma sociedade anônima (Sociedad Anónima - S.A.), que são as duas estruturas societárias mais comumente utilizadas na Espanha. Para os fins desta proposta, assumimos que a empresa será organizada como uma SL, por ser o tipo de entidade mais simples de operar." },
+        { t: "p", text: "Contudo, deve-se destacar que em certas situações pode ser mais conveniente ou até obrigatório organizar a empresa como uma sociedade anônima (S.A.), especialmente se a empresa planeja emitir ações em breve ou possui uma estrutura de capital mais complexa. Não obstante, a estrutura societária pode ser modificada de SL para S.A. se necessário no futuro." },
+      ],
+    },
+    {
+      heading: "Informações a serem fornecidas pelo cliente",
+      blocks: [
+        { t: "p", text: "Ao redigir os estatutos sociais da Empresa Espanhola, deverá ser fornecida a seguinte informação:" },
+        { t: "ul", items: [
+          "(i) 5 opções de nome da empresa, que deve incluir seu objeto social principal;",
+          "(ii) A identificação do(s) sócio(s), que podem ser uma (1) ou mais pessoas físicas ou jurídicas, espanholas ou estrangeiras;",
+          "(iii) O endereço registrado da Empresa Espanhola na Espanha*;",
+          "(iv) O objeto social da empresa; e",
+          "(v) Os dados do administrador da empresa**.",
+        ] },
+        { t: "p", text: "*Caso não disponha de um domicílio local, podemos recomendar um parceiro local para a obtenção de um domicílio comercial ou legal em Madrid." },
+        { t: "p", text: "**Caso sejam estrangeiros não residentes, deverá ser tramitado o seu NIE." },
+      ],
+    },
+    {
+      heading: "Serviços adicionais (opcionais)",
+      blocks: [
+        { t: "h", text: "1. Obtenção de Número de Identificação Fiscal (NIE/NIF)" },
+        { t: "p", text: "Caso a SL seja constituída por uma pessoa física, esta necessitará de um NIE para se identificar fiscalmente. Se a constituição for feita por uma pessoa jurídica, necessitará de um NIF. Se for necessária a obtenção de qualquer desses trâmites, contamos com colaboradores locais que podem oferecer:" },
+        { t: "ul", items: [
+          "Orientação ao cliente para a coleta de documentação e sua revisão.",
+          "Redação de procuração notarial para a apresentação da documentação na Espanha ou no Consulado espanhol local e assistência em seu apostilamento.",
+          "Apresentação da documentação na Espanha para a expedição dos respectivos números de identificação.",
+          "Caso a sócia seja Pessoa Jurídica, será prestada assistência na obtenção e apresentação dos documentos societários apostilados e, quando aplicável, traduzidos.",
+        ] },
+        { t: "p", strong: true, text: "Valor por gestão de NIE (pessoas físicas): € 700,00  ·  Valor por gestão de NIF (pessoas jurídicas): € 600,00" },
+      ],
+    },
+    {
+      heading: "Gastos de tramitação",
+      blocks: [
+        { t: "p", text: "Os gastos necessários para a realização do trabalho, tais como cópias, transporte, impostos, taxas, traduções, legalizações, apostilas, notário, etc., não estão incluídos nos honorários propostos e deverão ser reembolsados pelo Cliente, desde que previamente aprovados." },
+        { t: "p", strong: true, text: "Será exigida uma provisão de fundos para gastos de Registro Mercantil e Notário, Agência Tributária, NIF e denominação negativa de €1.200,00 + IVA." },
+        { t: "p", strong: true, text: "Deverá ser aportado €3.000,00 a título de capital social inicial da SL. O trâmite pode ser iniciado com 1 euro, com o compromisso de aportar o restante durante o desenvolvimento da atividade local." },
+        { t: "h2", text: "Prazos de tramitação" },
+        { t: "p", text: "O prazo habitual para a tramitação de uma Sociedad Limitada com sócio estrangeiro não residente na Espanha é de entre 45 e 75 dias, sujeito principalmente à obtenção do NIE do sócio e à abertura da conta bancária. Esses prazos são estimativos e podem variar conforme a carga administrativa dos órgãos competentes e a documentação fornecida." },
+      ],
+    },
+  ],
+  priceTitle: "Proposta | Soft Landing na Espanha",
+  priceIncludes: [
+    "Desenho do plano de desembarque operacional no mercado espanhol e gestão de projeto para a ativação da entidade operacional, contando com fornecedores locais certificados para a execução formal do registro da Empresa Espanhola no registro mercantil local, obtenção da denominação social, redação de Estatutos sociais da Empresa Espanhola, e obtenção de documentação e apostilas.",
+  ],
+  priceValue: "Honorário Fixo: € 1.950,00",
+  priceImage: "/images/price-spain.png",
+  conditions: [
+    "Os valores indicados nesta proposta são expressos em euros. Seu pagamento poderá ser realizado, a critério do cliente, através de transferência bancária doméstica, internacional ou cripto para Estados Unidos, Argentina ou Brasil.",
+    "Os gastos necessários para a realização do trabalho, que não estejam expressamente incluídos nos honorários propostos, deverão ser reembolsados pelo Cliente, desde que autorizados.",
+    "Os honorários serão faturados 50% do total no início do trabalho e 50% na finalização de todas as tarefas listadas que sejam de responsabilidade da nossa firma. No caso de serviços recorrentes, os honorários serão faturados no início de cada mês, entre os dias 1 e 5.",
+    "Os serviços da Lawi limitam-se estritamente à consultoria estratégica de negócio e à gestão de projetos. A formalização legal e gestão administrativa local é executada por profissionais externos devidamente habilitados.",
+    "Esta proposta tem validade de trinta (30) dias.",
+  ],
+};
 
 // ---------------------------------------------------------------------------
 // Disponibilidade derivada das chaves "jur|svc|mod|lang"
